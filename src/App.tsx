@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react'
-import { AccountForm } from './AccountForm'
-import { AddressForm } from './AddressForm'
+import { Education } from './Education'
+import { Experience } from './Experience'
+import { Languages } from './Languages'
 import { useCustomHook } from './useCustumHook'
 import { UserForm } from './UserForm'
 import { WelcomeScreen } from './WelcomeScreen'
@@ -10,6 +11,15 @@ import { WelcomeScreen } from './WelcomeScreen'
 type FormData = {
   firstName: string
   lastName: string
+  placeOfResidence: string
+  sumarry: string
+  position: string
+  fromTo: string
+  schoolName: string
+  period: string
+  languageOne: string
+  languageTwo: string
+  languageThree: string
   age: string
   street: string
   city: string
@@ -22,6 +32,15 @@ type FormData = {
 const initialData: FormData = {
   firstName: '',
   lastName: '',
+  placeOfResidence: '',
+  sumarry: '',
+  position: "",
+  fromTo: '',
+  schoolName: '',
+  period: '',
+  languageOne: '',
+  languageTwo: '',
+  languageThree: '',
   age: '',
   street: '',
   city: '',
@@ -40,17 +59,23 @@ function App() {
       return {...prev, ...fields}
     })
   }
-  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } = useCustomHook([ <WelcomeScreen />, <UserForm {...data} updateFields={updateFields} />, <AddressForm {...data} updateFields={updateFields} />, <AccountForm {...data} updateFields={updateFields} /> ])
+  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } = useCustomHook([ 
+  <WelcomeScreen />,
+   <UserForm {...data} updateFields={updateFields} />,
+    <Experience {...data} updateFields={updateFields} />,
+    <Education {...data} updateFields={updateFields} />, 
+    <Languages {...data} updateFields={updateFields} />,
+   ])
 
   function onSubmit(e: FormEvent){
     e.preventDefault()
     if(!isLastStep) return next()
-    //api request here
+    // api call here
   }
 
   return <div style={{
     position: 'relative',
-    background: '#A18CD1',
+    background: '#111',
     border: 'none',
     padding: '2rem',
     margin: '1rem',
