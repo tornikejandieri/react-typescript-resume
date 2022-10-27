@@ -5,7 +5,7 @@ export function WelcomeScreen(){
   return (
     <>
       <h2 style={{marginBottom: '40px'}}>TypeScript form with backend</h2>
-     <span>Powered By: </span>
+     <span>Supercharged With: </span>
      <div className='images'>
      <img src={Logo} className='react-logo' style={{width: '150px',
       display: 'flex',
