@@ -4,7 +4,7 @@ import LogoTwo from './images/vite-logo.png'
 export function WelcomeScreen(){
   return (
     <>
-      <h2 style={{marginBottom: '40px'}}>Welcome To The Online CV Maker</h2>
+      <h2 style={{marginBottom: '40px'}}>TypeScript form with backend</h2>
      <span>Powered By: </span>
      <div className='images'>
      <img src={Logo} className='react-logo' style={{width: '150px',

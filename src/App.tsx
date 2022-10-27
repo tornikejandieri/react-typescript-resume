@@ -20,13 +20,8 @@ type FormData = {
   languageOne: string
   languageTwo: string
   languageThree: string
-  age: string
-  street: string
-  city: string
-  state: string
-  zip: string
   email: string
-  password: string
+ 
 }
 
 const initialData: FormData = {
@@ -41,18 +36,15 @@ const initialData: FormData = {
   languageOne: '',
   languageTwo: '',
   languageThree: '',
-  age: '',
-  street: '',
-  city: '',
-  state: '',
-  zip: '',
   email: '',
-  password: ''
+  
 }
 
 
 function App() {
   const [data, setData] = useState(initialData)
+
+  
 
   function updateFields(fields: Partial<FormData>){
     setData(prev => {
@@ -66,11 +58,27 @@ function App() {
     <Education {...data} updateFields={updateFields} />, 
     <Languages {...data} updateFields={updateFields} />,
    ])
+   function startPage(){
+    back()
+    back()
+    back()
+    back()
+    back()
+   }
 
   function onSubmit(e: FormEvent){
     e.preventDefault()
     if(!isLastStep) return next()
     // api call here
+    fetch('https://react-typescript-forms-default-rtdb.europe-west1.firebasedatabase.app/posts.json', {
+      method: 'POST',
+      body: JSON.stringify(data),
+
+    }).then(() => {
+      alert('submitted')
+      setData(initialData)
+      startPage()
+    }) 
   }
 
   return <div style={{
