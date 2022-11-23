@@ -1,4 +1,5 @@
-import { FormWrapper } from "./FormWrapper";
+import { FormWrapper } from "./FormWrapper"
+import { Input } from "@nextui-org/react"
 
 type EducationData = {
   schoolName: string
@@ -6,14 +7,36 @@ type EducationData = {
 }
 
 type EducationFormProps = EducationData & {
-  updateFields: (fields: Partial<EducationData>) => void 
+  updateFields: (fields: Partial<EducationData>) => void
 }
 
-export function Education({schoolName, period, updateFields}: EducationFormProps){
-  return <FormWrapper title="Education">
-    <label>School & Degree Name</label>
-    <input autoFocus required type="text" value={schoolName} onChange={e => updateFields({schoolName: e.target.value})} />
-    <label>Period of Study</label>
-    <input required type="text" value={period} onChange={e => updateFields({period: e.target.value})} />
-  </FormWrapper>
+export function Education({
+  schoolName,
+  period,
+  updateFields,
+}: EducationFormProps) {
+  return (
+    <FormWrapper title='Education'>
+      <Input
+        css={{ margin: "10px" }}
+        labelPlaceholder='School and degree'
+        clearable
+        autoFocus
+        required
+        type='text'
+        value={schoolName}
+        onChange={(e) => updateFields({ schoolName: e.target.value })}
+      />
+
+      <Input
+        css={{ margin: "10px" }}
+        labelPlaceholder='Period'
+        clearable
+        required
+        type='text'
+        value={period}
+        onChange={(e) => updateFields({ period: e.target.value })}
+      />
+    </FormWrapper>
+  )
 }

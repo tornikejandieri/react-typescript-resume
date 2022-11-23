@@ -1,4 +1,5 @@
-import { FormWrapper } from "./FormWrapper";
+import { FormWrapper } from "./FormWrapper"
+import { Input } from "@nextui-org/react"
 
 type LanguagesData = {
   languageOne: string
@@ -7,17 +8,47 @@ type LanguagesData = {
 }
 
 type LanguagesFormProps = LanguagesData & {
-  updateFields: (fields: Partial<LanguagesData>) => void 
+  updateFields: (fields: Partial<LanguagesData>) => void
 }
 
-export function Languages({languageOne, languageTwo, languageThree, updateFields}: LanguagesFormProps){
-  return <FormWrapper title='Language Skills'>
-    <label>Language One:</label>
-    <input autoFocus required type="text" value={languageOne} onChange={e => updateFields({languageOne: e.target.value})} />
-    <label>Language Two:</label>
-    <input required type="text" value={languageTwo} onChange={e => updateFields({languageTwo: e.target.value})} />
-    <label>Language Three:</label>
-    <input required type="text" value={languageThree} onChange={e => updateFields({languageThree: e.target.value})} />
-  </FormWrapper>
+export function Languages({
+  languageOne,
+  languageTwo,
+  languageThree,
+  updateFields,
+}: LanguagesFormProps) {
+  return (
+    <FormWrapper title='Language Skills'>
+      <Input
+        css={{ margin: "10px" }}
+        labelPlaceholder='Language One'
+        clearable
+        autoFocus
+        required
+        type='text'
+        value={languageOne}
+        onChange={(e) => updateFields({ languageOne: e.target.value })}
+      />
 
+      <Input
+        css={{ margin: "10px" }}
+        labelPlaceholder='Language Two'
+        clearable
+        required
+        type='text'
+        value={languageTwo}
+        onChange={(e) => updateFields({ languageTwo: e.target.value })}
+      />
+
+      <Input
+        css={{ margin: "10px" }}
+        labelPlaceholder='Language Three'
+        clearable
+        required
+        type='text'
+        value={languageThree}
+        onChange={(e) => updateFields({ languageThree: e.target.value })}
+      />
+    </FormWrapper>
+  )
 }

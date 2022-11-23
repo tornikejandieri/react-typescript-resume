@@ -1,28 +1,27 @@
-import Logo from './images/react-logo.png'
-import LogoTwo from './images/vite-logo.png'
+import Logo from "./images/react-logo.png"
+import LogoTwo from "./images/vite-logo.png"
+import { Text } from "@nextui-org/react"
 
-export function WelcomeScreen(){
+export function WelcomeScreen() {
   return (
     <>
-      <h2 style={{marginBottom: '40px'}}>TypeScript form with backend</h2>
-     <span>Supercharged With: </span>
-     <div className='images'>
-     <img src={Logo} className='react-logo' style={{width: '150px',
-      display: 'flex',
-      justifyContent: 'center',
-       alignItems: 'center',
-       alignSelf: 'center',
-      maxWidth: 'max-content',
-        }} />
-         <img src={LogoTwo} style={{width: '150px',
-      display: 'flex',
-      justifyContent: 'center',
-       alignItems: 'center',
-       alignSelf: 'center',
-      maxWidth: 'max-content',
-        }} />
-     </div>
-      
+      <Text
+        h2
+        css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 50%",
+        }}
+      >
+        TypeScript form with backend
+      </Text>
+      <span>Supercharged With: </span>
+      <div className='images'>
+        <img
+          src={Logo}
+          className='react-logo'
+          style={{ width: "50px", height: "50px" }}
+        />
+        <img src={LogoTwo} style={{ width: "50px", height: "50px" }} />
+      </div>
     </>
   )
 }
